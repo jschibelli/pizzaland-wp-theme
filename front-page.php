@@ -1,14 +1,31 @@
 <?php get_header();?>
 
+<?php $hero = get_field('hero');?>
+
 <section class="bg-1 h-900x main-slider pos-relative">
 	<div class="triangle-up pos-bottom"></div>
 	<div class="container h-100">
 		<div class="dplay-tbl">
 			<div class="dplay-tbl-cell center-text color-white">
 
-				<h5><b>BEST IN TOWN</b></h5>
-				<h1 class="mt-30 mb-15">Pizza & Pasta</h1>
-				<h5><a href="#" class="btn-primaryc plr-25"><b>SEE TODAYS MENU</b></a></h5>
+				<h5><b><?php echo $hero['small_title']?></b></h5>
+
+				<h1 class="mt-30 mb-15"><?php echo $hero['main_title']?></h1>
+
+				<?php if($hero['link']):?>
+
+				<h5>
+					
+					<a href="<?php echo $hero['link']?>" class="btn-primaryc plr-25">
+
+						<b><?php echo $hero['link_text']?></b>
+
+					</a>
+
+				</h5>
+
+			<?php endif;?>
+
 			</div><!-- dplay-tbl-cell -->
 		</div><!-- dplay-tbl -->
 	</div><!-- container -->
@@ -20,7 +37,7 @@
 	<div class="abs-tbr bg-3 w-20 z--1 dplay-md-none"></div>
 	<div class="container">
 		<div class="heading">
-			<img class="heading-img" src="images/heading_logo.png" alt="">
+			<img class="heading-img" src="<?php bloginfo('template_directory');?>/images/heading_logo.png" alt="">
 			<h2>Our Story</h2>
 		</div>
 
@@ -55,7 +72,7 @@
 	<div class="pos-top triangle-bottom"></div>
 	<div class="container">
 		<div class="heading">
-			<img class="heading-img" src="images/heading_logo.png" alt="">
+			<img class="heading-img" src="<?php bloginfo('template_directory');?>/images/heading_logo.png" alt="">
 			<h2>Best Sellers</h2>
 		</div>
 
@@ -64,7 +81,7 @@
 				<div class="center-text mb-30">
 					<div class="ïmg-200x mlr-auto pos-relative">
 						<h6 class="ribbon-cont"><div class="ribbon primary"></div><b>OFFER</b></h6>
-						<img src="images/seller-2-200x200.png" alt="">
+						<img src="<?php bloginfo('template_directory');?>/images/seller-2-200x200.png" alt="">
 					</div>
 					<h5 class="mt-20">Pizza Margherita</h5>
 					<h4 class="mt-5"><b>$11.90</b></h4>
@@ -74,7 +91,7 @@
 
 			<div class="col-lg-3 col-md-4  col-sm-6 ">
 				<div class="center-text mb-30">
-					<div class="ïmg-200x mlr-auto pos-relative"><img src="images/seller-2-200x200.png" alt=""></div>
+					<div class="ïmg-200x mlr-auto pos-relative"><img src="<?php bloginfo('template_directory');?>/images/seller-2-200x200.png" alt=""></div>
 					<h5 class="mt-20">Pizza Margherita</h5>
 					<h4 class="mt-5"><b>$11.90</b></h4>
 					<h6 class="mt-20"><a href="#" class="btn-brdr-primary plr-25"><b>Order Now</b></a></h6>
@@ -83,7 +100,7 @@
 
 			<div class="col-lg-3 col-md-4  col-sm-6 ">
 				<div class="center-text mb-30">
-					<div class="ïmg-200x mlr-auto pos-relative"><img src="images/seller-2-200x200.png" alt=""></div>
+					<div class="ïmg-200x mlr-auto pos-relative"><img src="<?php bloginfo('template_directory');?>/images/seller-2-200x200.png" alt=""></div>
 					<h5 class="mt-20">Pizza Margherita</h5>
 					<h4 class="mt-5"><b>$11.90</b></h4>
 					<h6 class="mt-20"><a href="#" class="btn-brdr-primary plr-25"><b>Order Now</b></a></h6>
@@ -94,7 +111,7 @@
 				<div class="center-text mb-30">
 					<div class="ïmg-200x mlr-auto pos-relative">
 						<h6  class="ribbon-cont"><div class="ribbon secondary"></div><b>SPECIALITY</b></h6>
-						<img src="images/seller-2-200x200.png" alt="">
+						<img src="<?php bloginfo('template_directory');?>/images/seller-2-200x200.png" alt="">
 					</div>
 					<h5 class="mt-20">Pizza Margherita</h5>
 					<h4 class="mt-5"><b>$11.90</b></h4>
@@ -104,7 +121,7 @@
 
 			<div class="col-lg-3 col-md-4  col-sm-6 ">
 				<div class="center-text mb-30">
-					<div class="ïmg-200x mlr-auto pos-relative"><img src="images/seller-2-200x200.png" alt=""></div>
+					<div class="ïmg-200x mlr-auto pos-relative"><img src="<?php bloginfo('template_directory');?>/images/seller-2-200x200.png" alt=""></div>
 					<h5 class="mt-20">Pizza Margherita</h5>
 					<h4 class="mt-5"><b>$11.90</b></h4>
 					<h6 class="mt-20"><a href="#" class="btn-brdr-primary plr-25"><b>Order Now</b></a></h6>
@@ -115,7 +132,7 @@
 				<div class="center-text mb-30">
 					<div class="ïmg-200x mlr-auto pos-relative">
 						<h6 class="ribbon-cont"><div class="ribbon primary"></div><b>OFFER</b></h6>
-						<img src="images/seller-2-200x200.png" alt="">
+						<img src="<?php bloginfo('template_directory');?>/images/seller-2-200x200.png" alt="">
 					</div>
 					<h5 class="mt-20">Pizza Margherita</h5>
 					<h4 class="mt-5"><b>$11.90</b></h4>
@@ -127,7 +144,7 @@
 				<div class="center-text mb-30">
 					<div class="ïmg-200x mlr-auto pos-relative">
 						<h6 class="ribbon-cont color-black"><div class="ribbon white"></div><b>PLUS SIZE</b></h6>
-						<img src="images/seller-2-200x200.png" alt="">
+						<img src="<?php bloginfo('template_directory');?>/images/seller-2-200x200.png" alt="">
 					</div>
 					<h5 class="mt-20">Pizza Margherita</h5>
 					<h4 class="mt-5"><b>$11.90</b></h4>
@@ -137,7 +154,7 @@
 
 			<div class="col-lg-3 col-md-4  col-sm-6 ">
 				<div class="center-text mb-30">
-					<div class="ïmg-200x mlr-auto pos-relative"><img src="images/seller-2-200x200.png" alt=""></div>
+					<div class="ïmg-200x mlr-auto pos-relative"><img src="<?php bloginfo('template_directory');?>/images/seller-2-200x200.png" alt=""></div>
 					<h5 class="mt-20">Pizza Margherita</h5>
 					<h4 class="mt-5"><b>$11.90</b></h4>
 					<h6 class="mt-20"><a href="#" class="btn-brdr-primary plr-25"><b>Order Now</b></a></h6>
@@ -153,7 +170,7 @@
 <section>
 	<div class="container">
 		<div class="heading">
-			<img class="heading-img" src="images/heading_logo.png" alt="">
+			<img class="heading-img" src="<?php bloginfo('template_directory');?>/images/heading_logo.png" alt="">
 			<h2>Our Menu</h2>
 		</div>
 
@@ -172,7 +189,7 @@
 		<div class="row">
 			<div class="col-md-6 food-menu pizza">
 				<div class="sided-90x mb-30 ">
-					<div class="s-left"><img class="br-3" src="images/menu-1-120x120.jpg" alt="Menu Image"></div><!--s-left-->
+					<div class="s-left"><img class="br-3" src="<?php bloginfo('template_directory');?>/images/menu-1-120x120.jpg" alt="Menu Image"></div><!--s-left-->
 					<div class="s-right">
 						<h5 class="mb-10"><b>Pizza Margherita</b><b class="color-primary float-right">$12.00</b></h5>
 						<p class="pr-70">Maecenas fermentum tortor id fringilla molestie. In hac habitasse platea dictumst. </p>
@@ -182,7 +199,7 @@
 
 			<div class="col-md-6 food-menu pizza pasta">
 				<div class="sided-90x mb-30 ">
-					<div class="s-left"><img class="br-3" src="images/menu-2-120x120.jpg" alt="Menu Image"></div><!--s-left-->
+					<div class="s-left"><img class="br-3" src="<?php bloginfo('template_directory');?>/images/menu-2-120x120.jpg" alt="Menu Image"></div><!--s-left-->
 					<div class="s-right">
 						<h5 class="mb-10"><b>Italian pasta</b><b class="color-primary float-right">$20.00</b></h5>
 						<p class="pr-70">Proin dictum viverra varius. Etiam vulputate libero dui, at pretium elit elementum quis. </p>
@@ -192,7 +209,7 @@
 
 			<div class="col-md-6 food-menu pasta">
 				<div class="sided-90x mb-30 ">
-					<div class="s-left"><img class="br-3" src="images/menu-3-120x120.jpg" alt="Menu Image"></div><!--s-left-->
+					<div class="s-left"><img class="br-3" src="<?php bloginfo('template_directory');?>/images/menu-3-120x120.jpg" alt="Menu Image"></div><!--s-left-->
 					<div class="s-right">
 						<h5 class="mb-10"><b>Pizza Prosciuto</b><b class="color-primary float-right">$12.00</b></h5>
 						<p class="pr-70">Maecenas fermentum tortor id fringilla molestie. In hac habitasse platea dictumst. </p>
@@ -202,7 +219,7 @@
 
 			<div class="col-md-6 food-menu salads">
 				<div class="sided-90x mb-30">
-					<div class="s-left"><img class="br-3" src="images/menu-4-120x120.jpg" alt="Menu Image"></div><!--s-left-->
+					<div class="s-left"><img class="br-3" src="<?php bloginfo('template_directory');?>/images/menu-4-120x120.jpg" alt="Menu Image"></div><!--s-left-->
 					<div class="s-right">
 						<h5 class="mb-10"><b>Broschettas</b><b class="color-primary float-right">$6.00</b></h5>
 						<p class="pr-70">Proin dictum viverra varius. Etiam vulputate libero dui, at pretium elit elementum quis. </p>
@@ -211,7 +228,7 @@
 			</div><!-- food-menu -->
 			<div class="col-md-6 food-menu deserts">
 				<div class="sided-90x mb-30">
-					<div class="s-left"><img class="br-3" src="images/menu-5-120x120.jpg" alt="Menu Image"></div><!--s-left-->
+					<div class="s-left"><img class="br-3" src="<?php bloginfo('template_directory');?>/images/menu-5-120x120.jpg" alt="Menu Image"></div><!--s-left-->
 					<div class="s-right">
 						<h5 class="mb-10"><b>Pizza Margherita</b><b class="color-primary float-right">$12.00</b></h5>
 						<p class="pr-70">Maecenas fermentum tortor id fringilla molestie. In hac habitasse platea dictumst. </p>
@@ -221,7 +238,7 @@
 
 			<div class="col-md-6 food-menu pizza">
 				<div class="sided-90x mb-30 ">
-					<div class="s-left"><img class="br-3" src="images/menu-6-120x120.jpg" alt="Menu Image"></div><!--s-left-->
+					<div class="s-left"><img class="br-3" src="<?php bloginfo('template_directory');?>/images/menu-6-120x120.jpg" alt="Menu Image"></div><!--s-left-->
 					<div class="s-right">
 						<h5 class="mb-10"><b>Italian pasta</b><b class="color-primary float-right">$20.00</b></h5>
 						<p class="pr-70">Proin dictum viverra varius. Etiam vulputate libero dui, at pretium elit elementum quis. </p>
@@ -231,7 +248,7 @@
 
 			<div class="col-md-6 food-menu deserts">
 				<div class="sided-90x mb-30">
-					<div class="s-left"><img class="br-3" src="images/menu-7-120x120.jpg"  alt="Menu Image"></div><!--s-left-->
+					<div class="s-left"><img class="br-3" src="<?php bloginfo('template_directory');?>/images/menu-7-120x120.jpg"  alt="Menu Image"></div><!--s-left-->
 					<div class="s-right">
 						<h5 class="mb-10"><b>Pizza Prosciuto</b><b class="color-primary float-right">$12.00</b></h5>
 						<p class="pr-70">Maecenas fermentum tortor id fringilla  molestie. In hac habitasse platea dictumst. </p>
@@ -241,7 +258,7 @@
 
 			<div class="col-md-6 food-menu pasta">
 				<div class="sided-90x mb-30 ">
-					<div class="s-left"><img class="br-3" src="images/menu-8-120x120.jpg" alt="Menu Image"></div><!--s-left-->
+					<div class="s-left"><img class="br-3" src="<?php bloginfo('template_directory');?>/images/menu-8-120x120.jpg" alt="Menu Image"></div><!--s-left-->
 					<div class="s-right">
 						<h5 class="mb-10"><b>Broschettas</b><b class="color-primary float-right">$6.00</b></h5>
 						<p class="pr-70">Proin dictum viverra varius. Etiam vulputate libero dui, at pretium elit elementum quis. </p>
