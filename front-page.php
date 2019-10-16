@@ -1,5 +1,6 @@
 <?php get_header();?>
 
+
 <?php $hero = get_field('hero');?>
 
 <section class="bg-1 h-900x main-slider pos-relative">
@@ -31,6 +32,58 @@
 	</div><!-- container -->
 </section>
 
+<?php if( have_rows('repeater_field_name') ): ?>
+
+	<ul class="slides">
+
+	<?php while( have_rows('repeater_field_name') ): the_row(); 
+
+		// vars
+		$image = get_sub_field('image');
+		$content = get_sub_field('content');
+		$link = get_sub_field('link');
+
+		?>
+
+		<li class="slide">
+
+			<?php if( $link ): ?>
+				<a href="<?php echo $link; ?>">
+			<?php endif; ?>
+
+				<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" />
+
+			<?php if( $link ): ?>
+				</a>
+			<?php endif; ?>
+
+		    <?php echo $content; ?>
+
+		</li>
+
+	<?php endwhile; ?>
+
+	</ul>
+
+<?php endif; ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?php $info = get_field('main_information');?>
 
 <section class="story-area left-text center-sm-text pos-relative">
 	<div class="abs-tbl bg-2 w-20 z--1 dplay-md-none"></div>
@@ -38,133 +91,100 @@
 	<div class="container">
 		<div class="heading">
 			<img class="heading-img" src="<?php bloginfo('template_directory');?>/images/heading_logo.png" alt="">
-			<h2>Our Story</h2>
+			<h2><?php echo $info['information_title']?></h2>
 		</div>
 
 		<div class="row">
-			<div class="col-md-6">
-				<p class="mb-30">Maecenas fermentum tortor id fringilla molestie. In hac habitasse
-					platea dictumst. Morbi maximus
-					lobortis ipsum, ut blandit augue ullamcorper vitae.
-					Nulla dignissim leo felis, eget cursus elit aliquet ut. Curabitur vel convallis
-					massa. Morbi tellus
-					tortor, luctus et lacinia non, tincidunt in lacus.
-					Vivamus sed ligula imperdiet, feugiat magna vitae, blandit ex. Vestibulum id
-					dapibus dolor, ac
-					cursus nulla. </p>
+			<div class="col-md-6">	
+
+				<?php echo $info['right_side']?>
+
 			</div><!-- col-md-6 -->
 
 			<div class="col-md-6">
-				<p class="mb-30">Maecenas fermentum tortor id fringilla molestie. In hac habitasse platea
-					dictumst.Morbi maximus lobortis ipsum, ut blandit augue ullamcorper vitae.
-					Nulla dignissim leo felis, eget cursus elit aliquet ut. Curabitur vel
-					convallismassa. Morbi tellus tortor, luctus et lacinia non, tincidunt in lacus.
-					Vivamus sed ligula imperdiet, feugiat magna vitae, blandit ex. Vestibulumidda
-					pibus dolor, accursus nulla. </p>
+
+				<?php echo $info['left_side']?>
+
 			</div><!-- col-md-6 -->
 		</div><!-- row -->
 	</div><!-- container -->
 </section>
+?>
 
 
-<section class="story-area bg-seller color-white pos-relative">
-	<div class="pos-bottom triangle-up"></div>
-	<div class="pos-top triangle-bottom"></div>
-	<div class="container">
-		<div class="heading">
-			<img class="heading-img" src="<?php bloginfo('template_directory');?>/images/heading_logo.png" alt="">
-			<h2>Best Sellers</h2>
-		</div>
 
-		<div class="row">
-			<div class="col-lg-3 col-md-4  col-sm-6 ">
-				<div class="center-text mb-30">
-					<div class="ïmg-200x mlr-auto pos-relative">
-						<h6 class="ribbon-cont"><div class="ribbon primary"></div><b>OFFER</b></h6>
-						<img src="<?php bloginfo('template_directory');?>/images/seller-2-200x200.png" alt="">
-					</div>
-					<h5 class="mt-20">Pizza Margherita</h5>
-					<h4 class="mt-5"><b>$11.90</b></h4>
-					<h6 class="mt-20"><a href="#" class="btn-brdr-primary plr-25"><b>Order Now</b></a></h6>
-				</div><!--text-center-->
-			</div><!-- col-md-3 -->
 
-			<div class="col-lg-3 col-md-4  col-sm-6 ">
-				<div class="center-text mb-30">
-					<div class="ïmg-200x mlr-auto pos-relative"><img src="<?php bloginfo('template_directory');?>/images/seller-2-200x200.png" alt=""></div>
-					<h5 class="mt-20">Pizza Margherita</h5>
-					<h4 class="mt-5"><b>$11.90</b></h4>
-					<h6 class="mt-20"><a href="#" class="btn-brdr-primary plr-25"><b>Order Now</b></a></h6>
-				</div><!--text-center-->
-			</div><!-- col-md-3 -->
 
-			<div class="col-lg-3 col-md-4  col-sm-6 ">
-				<div class="center-text mb-30">
-					<div class="ïmg-200x mlr-auto pos-relative"><img src="<?php bloginfo('template_directory');?>/images/seller-2-200x200.png" alt=""></div>
-					<h5 class="mt-20">Pizza Margherita</h5>
-					<h4 class="mt-5"><b>$11.90</b></h4>
-					<h6 class="mt-20"><a href="#" class="btn-brdr-primary plr-25"><b>Order Now</b></a></h6>
-				</div><!--text-center-->
-			</div><!-- col-md-3 -->
+                
+						
+                	<?php if( have_rows('best_sellers') ): ?>
 
-			<div class="col-lg-3 col-md-4  col-sm-6 ">
-				<div class="center-text mb-30">
-					<div class="ïmg-200x mlr-auto pos-relative">
-						<h6  class="ribbon-cont"><div class="ribbon secondary"></div><b>SPECIALITY</b></h6>
-						<img src="<?php bloginfo('template_directory');?>/images/seller-2-200x200.png" alt="">
-					</div>
-					<h5 class="mt-20">Pizza Margherita</h5>
-					<h4 class="mt-5"><b>$11.90</b></h4>
-					<h6 class="mt-20"><a href="#" class="btn-brdr-primary plr-25"><b>Order Now</b></a></h6>
-				</div><!--text-center-->
-			</div><!-- col-md-3 -->
+                		<section class="story-area bg-seller color-white pos-relative">
+                		        <div class="pos-bottom triangle-up"></div>
+                		        <div class="pos-top triangle-bottom"></div>
+                		        <div class="container">
+                		                <div class="heading">
+                		                        <img class="heading-img" src="<?php bloginfo('template_directory');?>/images/heading_logo.png" alt="">
+                		                        <h2>Best Sellers</h2>
+                		                </div>
 
-			<div class="col-lg-3 col-md-4  col-sm-6 ">
-				<div class="center-text mb-30">
-					<div class="ïmg-200x mlr-auto pos-relative"><img src="<?php bloginfo('template_directory');?>/images/seller-2-200x200.png" alt=""></div>
-					<h5 class="mt-20">Pizza Margherita</h5>
-					<h4 class="mt-5"><b>$11.90</b></h4>
-					<h6 class="mt-20"><a href="#" class="btn-brdr-primary plr-25"><b>Order Now</b></a></h6>
-				</div><!--text-center-->
-			</div><!-- col-md-3 -->
+                		<div class="row">
 
-			<div class="col-lg-3 col-md-4  col-sm-6 ">
-				<div class="center-text mb-30">
-					<div class="ïmg-200x mlr-auto pos-relative">
-						<h6 class="ribbon-cont"><div class="ribbon primary"></div><b>OFFER</b></h6>
-						<img src="<?php bloginfo('template_directory');?>/images/seller-2-200x200.png" alt="">
-					</div>
-					<h5 class="mt-20">Pizza Margherita</h5>
-					<h4 class="mt-5"><b>$11.90</b></h4>
-					<h6 class="mt-20"><a href="#" class="btn-brdr-primary plr-25"><b>Order Now</b></a></h6>
-				</div><!--text-center-->
-			</div><!-- col-md-3 -->
+                		<?php while( have_rows('best_sellers') ): the_row(); 
 
-			<div class="col-lg-3 col-md-4  col-sm-6 ">
-				<div class="center-text mb-30">
-					<div class="ïmg-200x mlr-auto pos-relative">
-						<h6 class="ribbon-cont color-black"><div class="ribbon white"></div><b>PLUS SIZE</b></h6>
-						<img src="<?php bloginfo('template_directory');?>/images/seller-2-200x200.png" alt="">
-					</div>
-					<h5 class="mt-20">Pizza Margherita</h5>
-					<h4 class="mt-5"><b>$11.90</b></h4>
-					<h6 class="mt-20"><a href="#" class="btn-brdr-primary plr-25"><b>Order Now</b></a></h6>
-				</div><!--text-center-->
-			</div><!-- col-md-3 -->
+								$image = get_sub_field('image');
+								$title = get_sub_field('title');
+								$price = get_sub_field('price');
+								$link = get_sub_field('link');
+								$on_sale = get_sub_field('on_sale');
+								
 
-			<div class="col-lg-3 col-md-4  col-sm-6 ">
-				<div class="center-text mb-30">
-					<div class="ïmg-200x mlr-auto pos-relative"><img src="<?php bloginfo('template_directory');?>/images/seller-2-200x200.png" alt=""></div>
-					<h5 class="mt-20">Pizza Margherita</h5>
-					<h4 class="mt-5"><b>$11.90</b></h4>
-					<h6 class="mt-20"><a href="#" class="btn-brdr-primary plr-25"><b>Order Now</b></a></h6>
-				</div><!--text-center-->
-			</div><!-- col-md-3 -->
-		</div><!-- row -->
 
-		<h6 class="center-text mt-40 mt-sm-20 mb-30"><a href="#" class="btn-primaryc plr-25"><b>SEE TODAYS MENU</b></a></h6>
-	</div><!-- container -->
-</section>
+                		?>
+
+                		<div class="col-lg-3 col-md-4  col-sm-6 ">
+                		          <div class="center-text mb-30">
+                		                  <div class="ïmg-200x mlr-auto pos-relative">
+
+															<?php if($on_sale): ?>
+                		                          <h6 class="ribbon-cont"><div class="ribbon primary"></div><b>On Sale!</b></h6>
+
+                		                       <?php endif; ?>
+
+                		                          <img src="<?php echo $image['sizes']['product_image_small'];?>" alt="">
+                		                  </div>
+                		                  <h5 class="mt-20"><?php echo $title;?></h5>
+                		                  <h4 class="mt-5"><b>$<?php echo $price;?></b></h4>
+
+
+                		                  <?php if($link):?>
+                		                  <h6 class="mt-20"><a href="<?php echo $link; ?>" class="btn-brdr-primary plr-25"><b>Order Now</b></a></h6>
+
+                		               <?php endif; ?>
+                		          </div><!--text-center-->
+                		  </div><!-- col-md-3 -->
+
+
+
+
+
+
+
+
+
+
+                		<?php endwhile; ?>
+
+    						</div><!-- row -->
+    						                <h6 class="center-text mt-40 mt-sm-20 mb-30"><a href="#" class="btn-primaryc plr-25"><b>SEE TODAYS MENU</b></a></h6>
+    						        </div><!-- container -->
+    						</section>
+
+                	<?php endif; ?>
+
+               
+
+
 
 
 <section>
