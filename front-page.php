@@ -32,57 +32,6 @@
 	</div><!-- container -->
 </section>
 
-<?php if( have_rows('repeater_field_name') ): ?>
-
-	<ul class="slides">
-
-	<?php while( have_rows('repeater_field_name') ): the_row(); 
-
-		// vars
-		$image = get_sub_field('image');
-		$content = get_sub_field('content');
-		$link = get_sub_field('link');
-
-		?>
-
-		<li class="slide">
-
-			<?php if( $link ): ?>
-				<a href="<?php echo $link; ?>">
-			<?php endif; ?>
-
-				<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" />
-
-			<?php if( $link ): ?>
-				</a>
-			<?php endif; ?>
-
-		    <?php echo $content; ?>
-
-		</li>
-
-	<?php endwhile; ?>
-
-	</ul>
-
-<?php endif; ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <?php $info = get_field('main_information');?>
 
 <section class="story-area left-text center-sm-text pos-relative">
@@ -109,83 +58,74 @@
 		</div><!-- row -->
 	</div><!-- container -->
 </section>
-?>
+
+<?php if( have_rows('best_sellers') ): ?>
+
+<section class="story-area bg-seller color-white pos-relative">
+    <div class="pos-bottom triangle-up"></div>
+    <div class="pos-top triangle-bottom"></div>
+    <div class="container">
+        <div class="heading">
+
+            <img class="heading-img" src="<?php bloginfo('template_directory');?>/images/heading_logo.png" alt="">
+
+            <h2>Best Sellers</h2>
+        </div>
+        <div class="row">
+
+            <?php while( have_rows('best_sellers') ): the_row();
+
+                $image = get_sub_field('image');
+                $title = get_sub_field('title');
+                $price = get_sub_field('price');
+                $link = get_sub_field('link');
+                $on_sale = get_sub_field('on_sale');
+            ?>
+
+            <div class="col-lg-3 col-md-4  col-sm-6 ">
+                <div class="center-text mb-30">
+                    <div class="ïmg-200x mlr-auto pos-relative">
 
 
+                        <?php if($on_sale): ?>
 
+                        <h6 class="ribbon-cont">
 
+                            <div class="ribbon primary"></div><b>On Sale!</b>
+                        </h6>
 
-                
-						
-                	<?php if( have_rows('best_sellers') ): ?>
+                        <?php endif; ?>
 
-                		<section class="story-area bg-seller color-white pos-relative">
-                		        <div class="pos-bottom triangle-up"></div>
-                		        <div class="pos-top triangle-bottom"></div>
-                		        <div class="container">
-                		                <div class="heading">
-                		                        <img class="heading-img" src="<?php bloginfo('template_directory');?>/images/heading_logo.png" alt="">
-                		                        <h2>Best Sellers</h2>
-                		                </div>
+                        <img src="<?php echo $image['sizes']['product_image_small'];?>" alt="">
+                    </div>
 
-                		<div class="row">
+                    <h5 class="mt-20">
+                        <?php echo $title;?>
+                    </h5>
 
-                		<?php while( have_rows('best_sellers') ): the_row(); 
+                    <h4 class="mt-5">
+                        <b>$<?php echo $price;?></b>
+                    </h4>
 
-								$image = get_sub_field('image');
-								$title = get_sub_field('title');
-								$price = get_sub_field('price');
-								$link = get_sub_field('link');
-								$on_sale = get_sub_field('on_sale');
-								
+                    <?php if($link):?>
+                        <h6 class="mt-20">
+                            <a href="<?php echo $link; ?>" class="btn-brdr-primary plr-25"><b>Order Now</b></a>
+                        </h6>
 
+                    <?php endif; ?>
 
-                		?>
+                </div><!--text-center-->
+            </div><!-- col-md-3 -->
+            
+            <?php endwhile; ?>
+        </div><!-- row -->
+            <h6 class="center-text mt-40 mt-sm-20 mb-30">
+                <a href="#" class="btn-primaryc plr-25"><b>SEE TODAYS MENU</b></a>
+            </h6>
+    </div><!-- container -->
+</section>
 
-                		<div class="col-lg-3 col-md-4  col-sm-6 ">
-                		          <div class="center-text mb-30">
-                		                  <div class="ïmg-200x mlr-auto pos-relative">
-
-															<?php if($on_sale): ?>
-                		                          <h6 class="ribbon-cont"><div class="ribbon primary"></div><b>On Sale!</b></h6>
-
-                		                       <?php endif; ?>
-
-                		                          <img src="<?php echo $image['sizes']['product_image_small'];?>" alt="">
-                		                  </div>
-                		                  <h5 class="mt-20"><?php echo $title;?></h5>
-                		                  <h4 class="mt-5"><b>$<?php echo $price;?></b></h4>
-
-
-                		                  <?php if($link):?>
-                		                  <h6 class="mt-20"><a href="<?php echo $link; ?>" class="btn-brdr-primary plr-25"><b>Order Now</b></a></h6>
-
-                		               <?php endif; ?>
-                		          </div><!--text-center-->
-                		  </div><!-- col-md-3 -->
-
-
-
-
-
-
-
-
-
-
-                		<?php endwhile; ?>
-
-    						</div><!-- row -->
-    						                <h6 class="center-text mt-40 mt-sm-20 mb-30"><a href="#" class="btn-primaryc plr-25"><b>SEE TODAYS MENU</b></a></h6>
-    						        </div><!-- container -->
-    						</section>
-
-                	<?php endif; ?>
-
-               
-
-
-
+<?php endif; ?>
 
 <section>
 	<div class="container">
